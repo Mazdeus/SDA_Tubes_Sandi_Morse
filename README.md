@@ -7,8 +7,8 @@ Selamat datang di profil GitHub kami! Kaya seorang Mahasiswa Politeknik Negeri B
 
 ## Anggota 
 
-- **Mohammad Amadeus Andika Fadhil - 231524050 [MazDeus] **
-- **Muhammad Adhyaksa Fadillah - 231524051 [neonetz] **
-- **Muhammad Gianluigi Julian - 231524054 [mimisosorara] **
+- **Mohammad Amadeus Andika Fadhil - 231524050 [MazDeus]**
+- **Muhammad Adhyaksa Fadillah - 231524051 [neonetz]**
+- **Muhammad Gianluigi Julian - 231524054 [mimisosorara]**
 
 Terima kasih telah mengunjungi profil kami. Mari kita kolaborasi untuk membuat perubahan yang berarti melalui kekuatan teknologi!
