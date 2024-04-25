@@ -1,9 +1,9 @@
 # STRUKTUR DATA DAN ALGORITMA
-# TUGAS BESAR
+# TUGAS BESAR - SANDI MORSE
 
 ## Tentang Tugas
 
-Selamat datang di profil GitHub kami! Kaya seorang Mahasiswa Politeknik Negeri Bandung jurusan D4 - Teknik Informatika akan membuat sebuah implementasi konsep Binary Tree.
+Selamat datang di profil GitHub kami! Kaya seorang Mahasiswa Politeknik Negeri Bandung jurusan D4 - Teknik Informatika akan membuat sebuah implementasi konsep Binary Tree yaitu Sandi Morse
 
 ## Anggota 
 
