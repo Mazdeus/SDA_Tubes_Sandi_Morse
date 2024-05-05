@@ -32,14 +32,26 @@ struct Node* buildMorseTree() {
     root->dot->dot->dot->dot = createNode('H');
     root->dot->dot->dot->dash = createNode('V');
     root->dot->dot->dash->dot = createNode('F');
-    root->dot->dash->dash->dot = createNode('L');
-    root->dash->dot->dot->dot = createNode('P');
-    root->dash->dot->dot->dash = createNode('J');
-    root->dash->dot->dash->dash = createNode('B');
-    root->dash->dash->dash->dot = createNode('X');
-    root->dash->dash->dash->dash = createNode('C');
-    root->dash->dash->dot->dot = createNode('Y');
-    root->dash->dash->dot->dash = createNode('Z');
+    root->dot->dash->dot->dot = createNode('L');
+    root->dot->dash->dash->dot = createNode('P');
+    root->dot->dash->dash->dash = createNode('J');
+    root->dash->dot->dot->dot = createNode('B');
+    root->dash->dot->dot->dash = createNode('X');
+    root->dash->dot->dash->dot = createNode('C');
+    root->dash->dot->dash->dash = createNode('Y');
+    root->dash->dash->dot->dot = createNode('Z');
+    root->dash->dash->dot->dash = createNode('Q');
+    root->dash->dash->dash->dot = createNode('0');
+
+    root->dot->dot->dot->dot->dot = createNode('5');
+    root->dot->dot->dot->dot->dash = createNode('4');
+    root->dot->dot->dot->dash->dash = createNode('3');
+    root->dot->dash->dot->dash->dot = createNode('Spasi');
+    root->dot->dash->dash->dash->dash = createNode('1');
+    root->dash->dot->dot->dot->dot = createNode('6');
+    root->dash->dash->dot->dot->dot = createNode('7');
+    root->dash->dash->dash->dot->dot = createNode('8');
+    root->dash->dash->dash->dash->dot = createNode('9');
 
     return root;
 }
