@@ -201,6 +201,8 @@ void display_info() {
     printf("        |       @        |              .--.-.             |\n");
     printf("        |     (space)    |              .-..-.             |\n");
     printf("        +==================================================+\n\n\n");
+    char c;
+    scanf("%c",&c);
 }
 
 Node* createNode(char letter) {
