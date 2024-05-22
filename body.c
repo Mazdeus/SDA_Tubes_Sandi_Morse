@@ -27,11 +27,13 @@ void display_cover(){
 }
 
 void display_menu() {
+    system("cls");
     int choice;
     Node* root = NULL;
     initializeMorseTree(&root);
 
     while (1) {
+        system("cls");
         printf("                      +============================+\n");
         printf("                      |   __  __                   |\n");
         printf("                      |  |  \\/  |                  |\n");
@@ -56,6 +58,7 @@ void display_menu() {
 
         switch(choice) {
             case 1:
+                system("cls");
                 printf("In-order traversal: \n");
                 inOrderTraversal(root);
                 printf("\n");
@@ -64,6 +67,7 @@ void display_menu() {
                 break;
             case 2:
                 {
+                    system("cls");
                     int sub_choice;
                     printf("                         +======================+\n");
                     printf("                         |     1. Encode        |\n");
@@ -77,6 +81,7 @@ void display_menu() {
 
                     switch(sub_choice) {
                         case 1:
+                            system("cls");
                             char text[50];
                             printf("        +==================================================+\n");
                             printf("        |  _______                  _       _              |\n");
@@ -95,6 +100,7 @@ void display_menu() {
                             printf("\n");
                             break;
                         case 2:
+                            system("cls");
                             char morseText[100];
                             printf("        +==================================================+\n");
                             printf("        |  _______                  _       _              |\n");
@@ -261,6 +267,7 @@ void textToMorse(Node* root, char* text) {
         charToMorse(root, toupper(text[i]), path, 0);
     }
     printf("\n");
+
 }
 
 void morseToChar(Node* root, char* morse) {
