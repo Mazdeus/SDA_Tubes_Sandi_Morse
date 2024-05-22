@@ -57,7 +57,7 @@ void display_menu() {
         switch(choice) {
             case 1:
                 printf("In-order traversal: ");
-                inOrderTraversal(root);
+                inOrderTraversal(root,0);
                 printf("\n");
                 break;
             case 2:
@@ -161,11 +161,20 @@ void insert(Node** root, char* code, char letter) {
     temp->letter = letter;
 }
 
-void inOrderTraversal(Node* root) {
+
+void inOrderTraversal(Node* root, int depth) {
     if (root != NULL) {
-        inOrderTraversal(root->left);
-        printf("%c", root->letter); // Tidak perlu spasi di sini
-        inOrderTraversal(root->right);
+        inOrderTraversal(root->left, depth + 1);
+
+        for (int i = 0; i < depth; i++) {
+            printf("  ");
+        }
+        if (depth > 0) {
+            printf("-> ");
+        }
+        printf("%c\n", root->letter);
+
+        inOrderTraversal(root->right, depth + 1);
     }
 }
 

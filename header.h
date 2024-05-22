@@ -21,7 +21,7 @@ Node* createNode(char letter);
 
 void insert(Node** root, char* code, char letter);
 
-void inOrderTraversal(Node* root);
+void inOrderTraversal(Node* root, int depth);
 
 void charToMorse(Node* root, char letter, char* path, int pathLen);
 
