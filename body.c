@@ -64,6 +64,7 @@ void display_menu() {
                 {
                     int sub_choice;
                     printf("                         +======================+\n");
+                    printf("                         |     1. Encode        |\n");
                     printf("                         |     2. Decode        |\n");
                     printf("                         |     3. Back          |\n");
                     printf("                         +======================+\n");
@@ -75,6 +76,15 @@ void display_menu() {
                     switch(sub_choice) {
                         case 1:
                             char text[50];
+                            printf("     +==================================================+\n");
+                            printf("     |  _______                  _       _              |\n");
+                            printf("     | |__   __|                | |     | |             |\n");
+                            printf("     |    | |_ __ __ _ _ __  ___| | __ _| |_ ___  _ __  |\n");
+                            printf("     |    | | '__/ _` | '_ \\/ __| |/ _` | __/ _ \\| '__| |\n");
+                            printf("     |    | | | | (_| | | | \\__ \\ | (_| | || (_) | |    |\n");
+                            printf("     |    |_|_|  \\__,_|_| |_|___/_|\\__,_|\\__\\___/|_|    |\n");
+                            printf("     +==================================================+\n");
+
                             printf("Masukkan teks: ");
                             fgets(text, sizeof(text), stdin);
                             // Remove newline character from input if present
@@ -99,7 +109,7 @@ void display_menu() {
                 }
                 break;
             case 3:
-                printf("Masih dalam perkembangan\n");
+                readFile(root);
                 break;
             case 4:
                 printf("Masih dalam perkembangan\n");
@@ -262,4 +272,45 @@ void initializeMorseTree(Node** root) {
     insert(root, ".-..-.", '"');
     insert(root, ".--.-.", '@');
     insert(root, ".-..-.", ' '); // Spasi
+}
+
+// Fungsi untuk membaca isi file
+void readFile(Node* root) {
+    char filename[100];
+    printf("Masukkan nama file: ");
+    fgets(filename, sizeof(filename), stdin);
+    // Menghapus newline character yang tersisa
+    filename[strcspn(filename, "\n")] = 0;
+
+    // Debug: Print nama file yang dimasukkan
+    printf("Membuka file: %s\n", filename);
+
+    FILE* file = fopen(filename, "r");
+    if (file == NULL) {
+        printf("Tidak bisa membuka file %s\n", filename);
+        return;
+    }
+
+    char line[256];
+    while (fgets(line, sizeof(line), file)) {
+        // Menghapus newline character yang tersisa
+        line[strcspn(line, "\n")] = 0;
+
+        // Debug: Print setiap baris yang dibaca
+        printf("Membaca baris: %s\n", line);
+
+        // Cek apakah ini teks biasa atau sandi Morse
+        if (strchr(line, '.') != NULL || strchr(line, '-') != NULL) {
+            // Ini adalah sandi Morse
+            printf("Teks asli dari sandi Morse: ");
+            morseTextToChar(root, line);
+        } else {
+            // Ini adalah teks biasa
+            printf("Sandi Morse dari teks: ");
+            textToMorse(root, line);
+        }
+        printf("\n");
+    }
+
+    fclose(file);
 }

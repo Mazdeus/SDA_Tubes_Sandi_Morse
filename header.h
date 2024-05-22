@@ -35,5 +35,7 @@ void morseTextToChar(Node* root, char* morseText);
 
 void initializeMorseTree(Node** root);
 
+void readFile(Node* root);
+
 
 #endif
