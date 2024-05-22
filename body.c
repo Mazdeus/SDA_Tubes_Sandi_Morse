@@ -83,8 +83,7 @@ void display_menu() {
                             printf("     |    | | '__/ _` | '_ \\/ __| |/ _` | __/ _ \\| '__| |\n");
                             printf("     |    | | | | (_| | | | \\__ \\ | (_| | || (_) | |    |\n");
                             printf("     |    |_|_|  \\__,_|_| |_|___/_|\\__,_|\\__\\___/|_|    |\n");
-                            printf("     +==================================================+\n");
-
+                            printf("     +==================================================+\n\n\n");
                             printf("Masukkan teks: ");
                             fgets(text, sizeof(text), stdin);
                             // Remove newline character from input if present
@@ -95,6 +94,14 @@ void display_menu() {
                             break;
                         case 2:
                             char morseText[100];
+                            printf("     +==================================================+\n");
+                            printf("     |  _______                  _       _              |\n");
+                            printf("     | |__   __|                | |     | |             |\n");
+                            printf("     |    | |_ __ __ _ _ __  ___| | __ _| |_ ___  _ __  |\n");
+                            printf("     |    | | '__/ _` | '_ \\/ __| |/ _` | __/ _ \\| '__| |\n");
+                            printf("     |    | | | | (_| | | | \\__ \\ | (_| | || (_) | |    |\n");
+                            printf("     |    |_|_|  \\__,_|_| |_|___/_|\\__,_|\\__\\___/|_|    |\n");
+                            printf("     +==================================================+\n\n\n");
                             printf("Masukkan sandi Morse: ");
                             fgets(morseText, sizeof(morseText), stdin);
                             printf("Hasil: ");
@@ -122,6 +129,7 @@ void display_menu() {
         }
     }
 }
+
 
 Node* createNode(char letter) {
     Node* newNode = (Node*) malloc(sizeof(Node));
