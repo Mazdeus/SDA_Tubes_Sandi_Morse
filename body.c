@@ -315,7 +315,7 @@ void initializeMorseTree(Node** root) {
     insert(root, "-..-", 'X');
     insert(root, "-.--", 'Y');
     insert(root, "--..", 'Z');
-    insert(root, "-----", '0');
+    insert(root, "---.", '0');
     insert(root, ".----", '1');
     insert(root, "..---", '2');
     insert(root, "...--", '3');
@@ -341,7 +341,7 @@ void initializeMorseTree(Node** root) {
     insert(root, ".-.-.", '+');
     insert(root, "-....-", '-');
     insert(root, "..--.-", '_');
-    insert(root, ".-..-.", '"');
+    insert(root, "..--", '"');
     insert(root, ".--.-.", '@');
     insert(root, ".-..-.", ' '); // Spasi
 }
