@@ -17,6 +17,8 @@ void display_cover();
 
 void display_menu();
 
+void display_info();
+
 Node* createNode(char letter);
 
 void insert(Node** root, char* code, char letter);
