@@ -40,6 +40,8 @@ void initializeMorseTree(Node** root);
 
 void readFile(Node* root);
 
+void writeTextToFile();
+
 
 
 #endif

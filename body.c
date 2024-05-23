@@ -124,6 +124,7 @@ void display_menu() {
                 }
                 break;
             case 3:
+                writeTextToFile();
                 readFile(root);
                 break;
             case 4:
@@ -406,4 +407,22 @@ void readFile(Node* root) {
     }
 
     fclose(file);
+}
+void writeTextToFile() {
+    char input[256]; // Buffer untuk menyimpan input dari terminal
+    printf("Masukkan teks yang ingin dituliskan ke file: ");
+    fgets(input, sizeof(input), stdin); // Membaca input dari terminal
+    // Menghapus newline character yang tersisa
+    input[strcspn(input, "\n")] = 0;
+
+    FILE *file = fopen("output.txt", "a"); // Membuka file dengan mode append
+    if (file == NULL) {
+        printf("Gagal membuka file.\n");
+        return; // Mengembalikan kode error
+    }
+
+    fputs(input, file); // Menulis input ke dalam file
+    fclose(file); // Menutup file
+
+    printf("Teks berhasil ditulis ke dalam file 'output.txt'.\n");
 }
