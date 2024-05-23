@@ -59,6 +59,8 @@ void display_menu() {
                 printf("In-order traversal: ");
                 inOrderTraversal(root);
                 printf("\n");
+                printf("Tekan enter untuk kembali ke menu utama...");
+                getchar(); // Menunggu sampai pengguna menekan tombol enter
                 break;
             case 2:
                 {
