@@ -1,6 +1,7 @@
 #include "header.h"
 
 void display_cover(){
+    Beep(0,0);//Inisiasi suara supaya nanti tidak loading dulu
     //Menampilkan Tulisa TIC TAC TOE untuk cover
     printf("     +============================================================+\n");
     printf("     |   __          __  _                            _______     |\n");
@@ -240,7 +241,9 @@ void charToMorse(Node* root, char letter, char* path, int pathLen) {
 
     if (root->letter == letter) {
         for (int i = 0; i < pathLen; i++) {
+            Sleep(200); // Pause between dots and dashes
             printf("%c", path[i]);
+            playMorseSound(path[i]);
         }
         printf(" ");
     }
@@ -256,6 +259,7 @@ void textToMorse(Node* root, char* text) {
     char path[100];
     for (int i = 0; text[i] != '\0'; i++) {
         charToMorse(root, toupper(text[i]), path, 0);
+        Sleep(600); // Pause between characters
     }
     printf("\n");
 }
@@ -394,4 +398,13 @@ void readFile(Node* root) {
     }
 
     fclose(file);
+}
+void playMorseSound(char morseChar) {
+    if (morseChar == '.') {
+        Beep(750, 200); // Play a short beep for dot
+        Sleep(200); // Pause for dot duration
+    } else if (morseChar == '-') {
+        Beep(750, 600); // Play a long beep for dash
+        Sleep(600); // Pause for dash duration
+    }
 }

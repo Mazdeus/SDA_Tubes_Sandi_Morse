@@ -39,5 +39,6 @@ void initializeMorseTree(Node** root);
 
 void readFile(Node* root);
 
+void playMorseSound(char morseChar);
 
 #endif
