@@ -41,4 +41,6 @@ void readFile(Node* root);
 
 void playMorseSound(char morseChar);
 
+void writeTextToFile();
+
 #endif
