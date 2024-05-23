@@ -2,22 +2,22 @@
 
 void display_cover(){
     //Menampilkan Tulisa TIC TAC TOE untuk cover
-    printf("     +============================================================+\n");
-    printf("     |   __          __  _                            _______     |\n");
-    printf("     |   \\ \\        / / | |                          |__   __|    |\n");
-    printf("     |    \\ \\  /\\  / /__| | ___ ___  _ __ ___   ___     | | ___   |\n");
-    printf("     |     \\ \\/  \\/ / _ \\ |/ __/ _ \\| '_ ` _ \\ / _ \\    | |/ _ \\  |\n");
-    printf("     |      \\  /\\  /  __/ | (_| (_) | | | | | |  __/    | | (_) | |\n");
-    printf("     |       \\/  \\/ \\___|_|\\___\\___/|_| |_| |_|\\___|    |_|\\___/  |\n");
-    printf("     |                                                            |\n");
-    printf("     |    _____                 _ _   __  __                      |\n");
-    printf("     |   / ____|               | (_) |  \\/  |                     |\n");
-    printf("     |  | (___   __ _ _ __   __| |_  | \\  / | ___  _ __ ___  ___  |\n");
-    printf("     |   \\___ \\ / _` | '_ \\ / _` | | | |\\/| |/ _ \\| '__/ __|/ _ \\ |\n");
-    printf("     |   ____) | (_| | | | | (_| | | | |  | | (_) | |  \\__ \\  __/ |\n");
-    printf("     |  |_____/ \\__,_|_| |_|\\__,_|_| |_|  |_|\\___/|_|  |___/\\___| |\n");
-    printf("     |                                                            |\n");
-    printf("     +============================================================+\n");
+    printf("     +==============================================================+\n");
+    printf("     ||   __          __  _                            _______     ||\n");
+    printf("     ||   \\ \\        / / | |                          |__   __|    ||\n");
+    printf("     ||    \\ \\  /\\  / /__| | ___ ___  _ __ ___   ___     | | ___   ||\n");
+    printf("     ||     \\ \\/  \\/ / _ \\ |/ __/ _ \\| '_ ` _ \\ / _ \\    | |/ _ \\  ||\n");
+    printf("     ||      \\  /\\  /  __/ | (_| (_) | | | | | |  __/    | | (_) | ||\n");
+    printf("     ||       \\/  \\/ \\___|_|\\___\\___/|_| |_| |_|\\___|    |_|\\___/  ||\n");
+    printf("     ||                                                            ||\n");
+    printf("     ||    _____                 _ _   __  __                      ||\n");
+    printf("     ||   / ____|               | (_) |  \\/  |                     ||\n");
+    printf("     ||  | (___   __ _ _ __   __| |_  | \\  / | ___  _ __ ___  ___  ||\n");
+    printf("     ||   \\___ \\ / _` | '_ \\ / _` | | | |\\/| |/ _ \\| '__/ __|/ _ \\ ||\n");
+    printf("     ||   ____) | (_| | | | | (_| | | | |  | | (_) | |  \\__ \\  __/ ||\n");
+    printf("     ||  |_____/ \\__,_|_| |_|\\__,_|_| |_|  |_|\\___/|_|  |___/\\___| ||\n");
+    printf("     ||                                                            ||\n");
+    printf("     +==============================================================+\n");
 
     //Klik enter untuk lanjut 
     printf("                         Klik Enter Untuk Lanjut\n\n");
@@ -27,30 +27,28 @@ void display_cover(){
 }
 
 void display_menu() {
-    system("cls");
     int choice;
     Node* root = NULL;
     initializeMorseTree(&root);
 
     while (1) {
-        system("cls");
-        printf("                      +============================+\n");
-        printf("                      |   __  __                   |\n");
-        printf("                      |  |  \\/  |                  |\n");
-        printf("                      |  | \\  / | ___ _ __  _   _  |\n");
-        printf("                      |  | |\\/| |/ _ \\ '_ \\| | | | |\n");
-        printf("                      |  | |  | |  __/ | | | |_| | |\n");
-        printf("                      |  |_|  |_|\\___|_| |_|\\__,_| |\n");
-        printf("                      |                            |\n");
-        printf("                      +============================+\n");
+        printf("                      +==============================+\n");
+        printf("                      ||   __  __                   ||\n");
+        printf("                      ||  |  \\/  |                  ||\n");
+        printf("                      ||  | \\  / | ___ _ __  _   _  ||\n");
+        printf("                      ||  | |\\/| |/ _ \\ '_ \\| | | | ||\n");
+        printf("                      ||  | |  | |  __/ | | | |_| | ||\n");
+        printf("                      ||  |_|  |_|\\___|_| |_|\\__,_| ||\n");
+        printf("                      ||                            ||\n");
+        printf("                      +==============================+\n");
         printf("\n");
-        printf("                         +======================+\n");
-        printf("                         |     1. Show Node     |\n");
-        printf("                         |     2. Translator    |\n");
-        printf("                         |     3. Read File     |\n");
-        printf("                         |     4. Info          |\n");
-        printf("                         |     5. Exit          |\n");
-        printf("                         +======================+\n");
+        printf("                         +========================+\n");
+        printf("                         ||     1. Show Node     ||\n");
+        printf("                         ||     2. Translator    ||\n");
+        printf("                         ||     3. Read File     ||\n");
+        printf("                         ||     4. Info          ||\n");
+        printf("                         ||     5. Exit          ||\n");
+        printf("                         +========================+\n");
         printf("\n");
         printf("Pilih Menu : ");
         scanf("%d", &choice);
@@ -58,22 +56,19 @@ void display_menu() {
 
         switch(choice) {
             case 1:
-                system("cls");
-                printf("In-order traversal: \n");
+                printf("In-order traversal: ");
                 inOrderTraversal(root);
                 printf("\n");
-                char c;
-                scanf("%c",&c);
                 break;
             case 2:
                 {
-                    system("cls");
                     int sub_choice;
-                    printf("                         +======================+\n");
-                    printf("                         |     1. Encode        |\n");
-                    printf("                         |     2. Decode        |\n");
-                    printf("                         |     3. Back          |\n");
-                    printf("                         +======================+\n");
+                    do {
+                    printf("                         +========================+\n");
+                    printf("                         ||     1. Encode        ||\n");
+                    printf("                         ||     2. Decode        ||\n");
+                    printf("                         ||     3. Back          ||\n");
+                    printf("                         +========================+\n");
                     printf("\n");
                     printf("Pilih Menu Translator: ");
                     scanf("%d", &sub_choice);
@@ -81,16 +76,16 @@ void display_menu() {
 
                     switch(sub_choice) {
                         case 1:
-                            system("cls");
+                            {
                             char text[50];
-                            printf("        +==================================================+\n");
-                            printf("        |  _______                  _       _              |\n");
-                            printf("        | |__   __|                | |     | |             |\n");
-                            printf("        |    | |_ __ __ _ _ __  ___| | __ _| |_ ___  _ __  |\n");
-                            printf("        |    | | '__/ _` | '_ \\/ __| |/ _` | __/ _ \\| '__| |\n");
-                            printf("        |    | | | | (_| | | | \\__ \\ | (_| | || (_) | |    |\n");
-                            printf("        |    |_|_|  \\__,_|_| |_|___/_|\\__,_|\\__\\___/|_|    |\n");
-                            printf("        +==================================================+\n\n\n");
+                            printf("        +====================================================+\n");
+                            printf("        ||  _______                  _       _              ||\n");
+                            printf("        || |__   __|                | |     | |             ||\n");
+                            printf("        ||    | |_ __ __ _ _ __  ___| | __ _| |_ ___  _ __  ||\n");
+                            printf("        ||    | | '__/ _` | '_ \\/ __| |/ _` | __/ _ \\| '__| ||\n");
+                            printf("        ||    | | | | (_| | | | \\__ \\ | (_| | || (_) | |    ||\n");
+                            printf("        ||    |_|_|  \\__,_|_| |_|___/_|\\__,_|\\__\\___/|_|    ||\n");
+                            printf("        +====================================================+\n\n\n");
                             printf("Masukkan teks: ");
                             fgets(text, sizeof(text), stdin);
                             // Remove newline character from input if present
@@ -99,39 +94,56 @@ void display_menu() {
                             textToMorse(root, text);
                             printf("\n");
                             break;
+                            }
                         case 2:
-                            system("cls");
+                            {
                             char morseText[100];
-                            printf("        +==================================================+\n");
-                            printf("        |  _______                  _       _              |\n");
-                            printf("        | |__   __|                | |     | |             |\n");
-                            printf("        |    | |_ __ __ _ _ __  ___| | __ _| |_ ___  _ __  |\n");
-                            printf("        |    | | '__/ _` | '_ \\/ __| |/ _` | __/ _ \\| '__| |\n");
-                            printf("        |    | | | | (_| | | | \\__ \\ | (_| | || (_) | |    |\n");
-                            printf("        |    |_|_|  \\__,_|_| |_|___/_|\\__,_|\\__\\___/|_|    |\n");
-                            printf("        +==================================================+\n\n\n");
+                            printf("        +====================================================+\n");
+                            printf("        ||  _______                  _       _              ||\n");
+                            printf("        || |__   __|                | |     | |             ||\n");
+                            printf("        ||    | |_ __ __ _ _ __  ___| | __ _| |_ ___  _ __  ||\n");
+                            printf("        ||    | | '__/ _` | '_ \\/ __| |/ _` | __/ _ \\| '__| ||\n");
+                            printf("        ||    | | | | (_| | | | \\__ \\ | (_| | || (_) | |    ||\n");
+                            printf("        ||    |_|_|  \\__,_|_| |_|___/_|\\__,_|\\__\\___/|_|    ||\n");
+                            printf("        +====================================================+\n\n\n");
                             printf("Masukkan sandi Morse: ");
                             fgets(morseText, sizeof(morseText), stdin);
                             printf("Hasil: ");
                             morseTextToChar(root, morseText);
                             printf("\n");
                             break;
+                            }
                         case 3:
                             break;  // Back to the main menu
                         default:
                             printf("Opsi tidak valid. Silakan coba lagi.\n");
-                    }
+                        }
+                    printf("Apakah Anda ingin menerjemahkan lagi? (1 untuk ya, 0 untuk tidak): ");
+                    scanf("%d", &sub_choice);
+                    getchar();  // Consume newline character left by scanf
+                    } while (sub_choice == 1);
                 }
                 break;
             case 3:
-                writeTextToFile();
                 readFile(root);
                 break;
             case 4:
                 display_info();
                 break;
             case 5:
-                printf("Keluar dari program.\n");
+                printf("        +========================================================+\n");
+                printf("        ||   _______ _                 _     __     __          ||\n");
+                printf("        ||  |__   __| |               | |    \\ \\   / /          ||\n");
+                printf("        ||     | |  | |__   __ _ _ __ | | __  \\ \\_/ /__  _   _  ||\n");
+                printf("        ||     | |  | '_ \\ / _` | '_ \\| |/ /   \\   / _ \\| | | | ||\n");
+                printf("        ||     | |  | | | | (_| | | | |   <     | | (_) | |_| | ||\n");
+                printf("        ||     |_|  |_| |_|\\__,_|_| |_|_|\\_\\    |_|\\___/ \\__,_| ||\n");
+                printf("        +========================================================+\n\n\n");
+                printf("                                  Creator :                     \n");
+                printf("                                  Team B3                       \n");
+                printf("                       - Mohammad Amadeus Andika Fadhil         \n");
+                printf("                       - Muhammad Adhyaksa Fadillah             \n");
+                printf("                       - Muhammad Gianluigi Julian              \n\n");
                 return;  // Exit the function to stop the loop
             default:
                 printf("Opsi tidak valid. Silakan coba lagi.\n");
@@ -202,8 +214,8 @@ void display_info() {
     printf("        |       @        |              .--.-.             |\n");
     printf("        |     (space)    |              .-..-.             |\n");
     printf("        +==================================================+\n\n\n");
-    char c;
-    scanf("%c",&c);
+    printf("Tekan enter untuk kembali ke menu utama...");
+    getchar(); // Menunggu sampai pengguna menekan tombol enter
 }
 
 Node* createNode(char letter) {
@@ -236,11 +248,10 @@ void insert(Node** root, char* code, char letter) {
     temp->letter = letter;
 }
 
-
 void inOrderTraversal(Node* root) {
     if (root != NULL) {
         inOrderTraversal(root->left);
-        printf("%c ", root->letter);
+        printf("%c", root->letter); // Tidak perlu spasi di sini
         inOrderTraversal(root->right);
     }
 }
@@ -270,7 +281,6 @@ void textToMorse(Node* root, char* text) {
         charToMorse(root, toupper(text[i]), path, 0);
     }
     printf("\n");
-
 }
 
 void morseToChar(Node* root, char* morse) {
@@ -361,14 +371,14 @@ void initializeMorseTree(Node** root) {
 
 // Fungsi untuk membaca isi file
 void readFile(Node* root) {
-    printf("        +=============================================+\n");
-    printf("        |   _____                _   ______ _ _       |\n");
-    printf("        |  |  __ \\              | | |  ____(_) |      |\n");
-    printf("        |  | |__) |___  __ _  __| | | |__   _| | ___  |\n");
-    printf("        |  |  _  // _ \\/ _` |/ _` | |  __| | | |/ _ \\ |\n");
-    printf("        |  | | \\ \\  __/ (_| | (_| | | |    | | |  __/ |\n");
-    printf("        |  |_|  \\_\\___|\\__,_|\\__,_| |_|    |_|_|\\___| |\n");
-    printf("        +=============================================+\n\n\n");
+    printf("        +===============================================+\n");
+    printf("        ||   _____                _   ______ _ _       ||\n");
+    printf("        ||  |  __ \\              | | |  ____(_) |      ||\n");
+    printf("        ||  | |__) |___  __ _  __| | | |__   _| | ___  ||\n");
+    printf("        ||  |  _  // _ \\/ _` |/ _` | |  __| | | |/ _ \\ ||\n");
+    printf("        ||  | | \\ \\  __/ (_| | (_| | | |    | | |  __/ ||\n");
+    printf("        ||  |_|  \\_\\___|\\__,_|\\__,_| |_|    |_|_|\\___| ||\n");
+    printf("        +===============================================+\n\n\n");
 
     char filename[100];
     printf("Masukkan nama file: ");
@@ -407,22 +417,7 @@ void readFile(Node* root) {
     }
 
     fclose(file);
-}
-void writeTextToFile() {
-    char input[256]; // Buffer untuk menyimpan input dari terminal
-    printf("Masukkan teks yang ingin dituliskan ke file: ");
-    fgets(input, sizeof(input), stdin); // Membaca input dari terminal
-    // Menghapus newline character yang tersisa
-    input[strcspn(input, "\n")] = 0;
 
-    FILE *file = fopen("output.txt", "a"); // Membuka file dengan mode append
-    if (file == NULL) {
-        printf("Gagal membuka file.\n");
-        return; // Mengembalikan kode error
-    }
-
-    fputs(input, file); // Menulis input ke dalam file
-    fclose(file); // Menutup file
-
-    printf("Teks berhasil ditulis ke dalam file 'output.txt'.\n");
+    printf("Tekan enter untuk kembali ke menu utama...");
+    getchar(); // Menunggu sampai pengguna menekan tombol enter
 }
