@@ -4,7 +4,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
-#include <time.h>
 
 typedef struct node {
     char letter;
@@ -40,8 +39,6 @@ void initializeMorseTree(Node** root);
 
 void readFile(Node* root);
 
-void writeTextToFile();
-
-
+void playMorseSound(char morseChar);
 
 #endif

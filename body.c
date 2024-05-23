@@ -1,6 +1,7 @@
 #include "header.h"
 
 void display_cover(){
+    Beep(0,0);//Inisiasi suara supaya nanti tidak loading dulu
     //Menampilkan Tulisa TIC TAC TOE untuk cover
     printf("     +==============================================================+\n");
     printf("     ||   __          __  _                            _______     ||\n");
@@ -266,6 +267,7 @@ void charToMorse(Node* root, char letter, char* path, int pathLen) {
     if (root->letter == letter) {
         for (int i = 0; i < pathLen; i++) {
             printf("%c", path[i]);
+            playMorseSound(path[i]);
         }
         printf(" ");
     }
@@ -281,6 +283,7 @@ void textToMorse(Node* root, char* text) {
     char path[100];
     for (int i = 0; text[i] != '\0'; i++) {
         charToMorse(root, toupper(text[i]), path, 0);
+        Sleep(400); // Pause between characters
     }
     printf("\n");
 }
@@ -423,24 +426,12 @@ void readFile(Node* root) {
     printf("Tekan enter untuk kembali ke menu utama...");
     getchar(); // Menunggu sampai pengguna menekan tombol enter
 }
-
-
-// Fungsi untuk menuliskan teks dari terminal ke dalam file
-void writeTextToFile() {
-    char input[256]; // Buffer untuk menyimpan input dari terminal
-    printf("Masukkan teks yang ingin dituliskan ke file: ");
-    fgets(input, sizeof(input), stdin); // Membaca input dari terminal
-    // Menghapus newline character yang tersisa
-    input[strcspn(input, "\n")] = 0;
-
-    FILE *file = fopen("output.txt", "a"); // Membuka file dengan mode append
-    if (file == NULL) {
-        printf("Gagal membuka file.\n");
-        return; // Mengembalikan kode error
+void playMorseSound(char morseChar) {
+    if (morseChar == '.') {
+        Beep(750, 200); // Play a short beep for dot
+        Sleep(400); // Pause for dot duration
+    } else if (morseChar == '-') {
+        Beep(750, 600); // Play a long beep for dash
+        Sleep(800); // Pause for dash duration
     }
-
-    fputs(input, file); // Menulis input ke dalam file
-    fclose(file); // Menutup file
-
-    printf("Teks berhasil ditulis ke dalam file 'output.txt'.\n");
 }
