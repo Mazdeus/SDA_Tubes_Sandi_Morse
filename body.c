@@ -283,7 +283,7 @@ void textToMorse(Node* root, char* text) {
     char path[100];
     for (int i = 0; text[i] != '\0'; i++) {
         charToMorse(root, toupper(text[i]), path, 0);
-        Sleep(400); // Pause between characters
+        Sleep(100); // Pause between characters
     }
     printf("\n");
 }
@@ -428,10 +428,10 @@ void readFile(Node* root) {
 }
 void playMorseSound(char morseChar) {
     if (morseChar == '.') {
-        Beep(750, 200); // Play a short beep for dot
-        Sleep(400); // Pause for dot duration
+        Beep(750, 50); // Play a short beep for dot
+        Sleep(100); // Pause for dot duration
     } else if (morseChar == '-') {
-        Beep(750, 600); // Play a long beep for dash
-        Sleep(800); // Pause for dash duration
+        Beep(750, 150); // Play a long beep for dash
+        Sleep(200); // Pause for dash duration
     }
 }
