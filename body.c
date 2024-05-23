@@ -428,10 +428,10 @@ void readFile(Node* root) {
 }
 void playMorseSound(char morseChar) {
     if (morseChar == '.') {
-        Beep(750, 50); // Play a short beep for dot
+        Beep(800, 50); // Play a short beep for dot
         Sleep(100); // Pause for dot duration
     } else if (morseChar == '-') {
-        Beep(750, 150); // Play a long beep for dash
+        Beep(800, 150); // Play a long beep for dash
         Sleep(200); // Pause for dash duration
     }
 }
