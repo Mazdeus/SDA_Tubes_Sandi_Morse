@@ -17,6 +17,8 @@ void display_cover();
 
 void display_menu();
 
+void display_info();
+
 Node* createNode(char letter);
 
 void insert(Node** root, char* code, char letter);
@@ -35,5 +37,8 @@ void morseTextToChar(Node* root, char* morseText);
 
 void initializeMorseTree(Node** root);
 
+void readFile(Node* root);
+
+void playMorseSound(char morseChar);
 
 #endif
