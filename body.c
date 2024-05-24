@@ -67,6 +67,9 @@ void display_menu() {
                 printf("In-order traversal: ");
                 inOrderTraversal(root);
                 printf("\n\n");
+                printf("Pre-order traversal: ");
+                preOrderTraversal(root);
+                printf("\n\n");
                 printf("Tekan enter untuk kembali ke menu utama...");
                 getchar(); 
                 break;
@@ -325,6 +328,15 @@ void inOrderTraversal(Node* root) {
         inOrderTraversal(root->left);
         printf(" '%c' ", root->letter); // Tidak perlu spasi di sini
         inOrderTraversal(root->right);
+    }
+}
+
+// Fungsi untuk melakukan traversal preorder pada pohon morse code
+void preOrderTraversal(Node* root) {
+    if (root != NULL) {
+        printf(" '%c' ", root->letter);
+        preOrderTraversal(root->left);
+        preOrderTraversal(root->right);
     }
 }
 
