@@ -70,6 +70,9 @@ void display_menu() {
                 printf("Pre-order traversal: ");
                 preOrderTraversal(root);
                 printf("\n\n");
+                printf("Post-order traversal: ");
+                postOrderTraversal(root);
+                printf("\n\n");
                 printf("Tekan enter untuk kembali ke menu utama...");
                 getchar(); 
                 break;
@@ -340,13 +343,22 @@ void preOrderTraversal(Node* root) {
     }
 }
 
+void postOrderTraversal(Node* root) {
+    if (root != NULL) {
+    postOrderTraversal(root->left);
+    postOrderTraversal(root->right);
+    printf(" '%c' ", root->letter);
+    }
+}
+
 // Mencari kode Morse untuk huruf yang diberikan dan mencetaknya.
-void charToMorse(Node* root, char letter, char* path, int pathLen) {
+void charToMorse(Node* root, char letter, char* path, int pathLen, int* found) {
     if (root == NULL) {
         return;
     }
 
     if (root->letter == letter) {
+        *found = 1;
         for (int i = 0; i < pathLen; i++) {
             printf("%c", path[i]);
             playMorseSound(path[i]);
@@ -355,17 +367,25 @@ void charToMorse(Node* root, char letter, char* path, int pathLen) {
     }
 
     path[pathLen] = '.';
-    charToMorse(root->left, letter, path, pathLen + 1);
+    charToMorse(root->left, letter, path, pathLen + 1, found);
 
     path[pathLen] = '-';
-    charToMorse(root->right, letter, path, pathLen + 1);
+    charToMorse(root->right, letter, path, pathLen + 1, found);
 }
 
 // Menerjemahkan teks ke kode Morse dan mencetaknya.
 void textToMorse(Node* root, char* text) {
     char path[100];
     for (int i = 0; text[i] != '\0'; i++) {
-        charToMorse(root, toupper(text[i]), path, 0);
+        if (text[i] == ' ') {
+            printf("  ");
+            continue;
+        }
+        int found = 0;
+        charToMorse(root, toupper(text[i]), path, 0, &found);
+        if (!found) {
+            printf("(Maaf karakter ini belum tersedia) ");
+        }
         Sleep(400); // Pause between characters
     }
     printf("\n");

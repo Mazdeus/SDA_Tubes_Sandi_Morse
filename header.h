@@ -27,7 +27,9 @@ void inOrderTraversal(Node* root);
 
 void preOrderTraversal(Node* root);
 
-void charToMorse(Node* root, char letter, char* path, int pathLen);
+void postOrderTraversal(Node* root);
+
+void charToMorse(Node* root, char letter, char* path, int pathLen, int* found);
 
 void textToMorse(Node* root, char* text);
 
