@@ -374,19 +374,16 @@ void charToMorse(Node* root, char letter, char* path, int pathLen, int* found) {
 }
 
 // Menerjemahkan teks ke kode Morse dan mencetaknya.
-void textToMorse(Node* root, char* text) {
-    char path[100];
+void textToMorse(Node* root, const char* text) {
     for (int i = 0; text[i] != '\0'; i++) {
         if (text[i] == ' ') {
-            printf("  ");
-            continue;
+            printf("/ ");
+        } else {
+            const char* morseCode = getMorseCode(root, text[i]);
+            if (morseCode) {
+                printf("%s ", morseCode);
+            }
         }
-        int found = 0;
-        charToMorse(root, toupper(text[i]), path, 0, &found);
-        if (!found) {
-            printf("(Maaf karakter ini belum tersedia) ");
-        }
-        Sleep(400); // Pause between characters
     }
     printf("\n");
 }
@@ -528,11 +525,11 @@ void readFile(Node* root) {
 // Sound effect untuk setiap karakter Morse.
 void playMorseSound(char morseChar) {
     if (morseChar == '.') {
-        Beep(750, 200); // Play a short beep for dot
-        Sleep(400); // Pause for dot duration
+        Beep(800, 50); // Play a short beep for dot
+        Sleep(100); // Pause for dot duration
     } else if (morseChar == '-') {
-        Beep(750, 600); // Play a long beep for dash
-        Sleep(800); // Pause for dash duration
+        Beep(800, 150); // Play a long beep for dash
+        Sleep(200); // Pause for dash duration
     }
 }
 
