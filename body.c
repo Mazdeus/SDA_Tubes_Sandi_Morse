@@ -287,7 +287,6 @@ void display_info() {
     printf("        |       _        |              ..--.-             |\n");
     printf("        |   (petik dua)  |              .-..-.             |\n");
     printf("        |       @        |              .--.-.             |\n");
-    printf("        |     (space)    |              .-..-.             |\n");
     printf("        +==================================================+\n\n\n");
     printf("Tekan enter untuk kembali ke menu utama...");
     getchar(); 
