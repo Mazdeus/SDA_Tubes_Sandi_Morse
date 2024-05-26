@@ -35,6 +35,8 @@ void textToMorse(Node* root, char* text);
 
 void morseToChar(Node* root, char* morse);
 
+int isValidMorseCode(char* morse);
+
 void morseWordToChar(Node* root, char* morseWord);
 
 void morseTextToChar(Node* root, char* morseText);
