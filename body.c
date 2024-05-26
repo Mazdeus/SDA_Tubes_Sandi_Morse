@@ -530,11 +530,11 @@ void readFile(Node* root) {
 // Sound effect untuk setiap karakter Morse.
 void playMorseSound(char morseChar) {
     if (morseChar == '.') {
-        Beep(750, 200); // Play a short beep for dot
-        Sleep(400); // Pause for dot duration
+        mciSendString("play dot.wav", NULL, 0, NULL); // Play a .wav file for dot
+        Sleep(60+60); // Pause for dot duration
     } else if (morseChar == '-') {
-        Beep(750, 600); // Play a long beep for dash
-        Sleep(800); // Pause for dash duration
+        mciSendString("play dash.wav", NULL, 0, NULL); // Play a .wav file for dot
+        Sleep(180+60); // Pause for dash duration
     }
 }
 
