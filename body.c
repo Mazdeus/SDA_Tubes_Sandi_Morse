@@ -378,7 +378,7 @@ void textToMorse(Node* root, char* text) {
     char path[100];
     for (int i = 0; text[i] != '\0'; i++) {
         if (text[i] == ' ') {
-            printf("  ");
+            printf("/ ");  // Modifikasi untuk mencetak "/" sebagai pengganti spasi
             continue;
         }
         int found = 0;
@@ -410,16 +410,20 @@ void morseToChar(Node* root, char* morse) {
 // Menerjemahkan kata dalam kode Morse ke huruf dan mencetaknya.
 void morseWordToChar(Node* root, char* morseWord) {
     morseToChar(root, morseWord);
-    printf(" ");
 }
 
 // Menerjemahkan teks dalam kode Morse ke huruf dan mencetaknya.
 void morseTextToChar(Node* root, char* morseText) {
     char* token = strtok(morseText, " ");
     while (token != NULL) {
-        morseWordToChar(root, token);
+        if (strcmp(token, "/") == 0) {
+            printf(" ");  // Tambahkan spasi untuk pemisah kata
+        } else {
+            morseWordToChar(root, token);
+        }
         token = strtok(NULL, " ");
     }
+    printf("\n");
 }
 
 // Menginisialisasi pohon Morse Code dengan memasukkan semua huruf, angka, dan simbol.
@@ -478,8 +482,8 @@ void initializeMorseTree(Node** root) {
     insert(root, "..--.-", '_');
     insert(root, "..--", '"');
     insert(root, ".--.-.", '@');
-    insert(root, ".-..-.", ' '); // Spasi
 }
+
 
 // Fungsi untuk membaca isi file
 void readFile(Node* root) {
