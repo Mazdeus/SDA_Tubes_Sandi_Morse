@@ -400,6 +400,9 @@ void morseToChar(Node* root, char* morse) {
         } else if (morse[i] == ' ') {
             printf("%c", temp->letter);
             temp = root;
+        } else {
+            printf("Error: Invalid Morse code input.\n");
+            return;
         }
     }
     printf("%c", temp->letter); // Cetak karakter terakhir
