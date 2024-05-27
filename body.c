@@ -528,14 +528,14 @@ void readFile(Node* root) {
     getchar(); // Menunggu sampai pengguna menekan tombol enter
 }
 
-// Sound effect untuk setiap karakter Morse.
+//Fungsi untuk membuat suara code morse
 void playMorseSound(char morseChar) {
     if (morseChar == '.') {
-        Beep(800, 50); // Play a short beep for dot
-        Sleep(100); // Pause for dot duration
+        Beep(750, 200); // Play a short beep for dot
+        Sleep(400); // Pause for dot duration
     } else if (morseChar == '-') {
-        Beep(800, 150); // Play a long beep for dash
-        Sleep(200); // Pause for dash duration
+        Beep(750, 600); // Play a long beep for dash
+        Sleep(800); // Pause for dash duration
     }
 }
 
