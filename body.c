@@ -542,7 +542,7 @@ void readFile(Node* root) {
     getchar(); // Menunggu sampai pengguna menekan tombol enter
 }
 
-// Sound effect untuk setiap karakter Morse.
+//Fungsi untuk membuat suara code morse
 void playMorseSound(char morseChar) {
     if (morseChar == '.') {
         mciSendString("play dot.wav", NULL, 0, NULL); // Play a .wav file for dot
