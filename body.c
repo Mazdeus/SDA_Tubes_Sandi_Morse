@@ -2,7 +2,6 @@
 
 //Menampilkan tampilan utama
 void display_cover(){
-    Beep(0,0);//Inisiasi suara supaya nanti tidak loading dulu
     printf("     +==============================================================+\n");
     printf("     ||   __          __  _                            _______     ||\n");
     printf("     ||   \\ \\        / / | |                          |__   __|    ||\n");
@@ -407,6 +406,17 @@ void morseToChar(Node* root, char* morse) {
     printf("%c", temp->letter); // Cetak karakter terakhir
 }
 
+int isValidMorseCode(char* morse) {
+    for (int i = 0; morse[i] != '\0'; i++) {
+        if (morse[i] != '.' && morse[i] != '-' && morse[i] != ' ' && morse[i] != '/') { // Cek jika bukan karakter valid
+            if (morse[i] != '\n' && morse[i] != '\r') { // Cek jika bukan newline character
+                return 0;  // Return 0 (false) if an invalid character is found
+            }
+        }
+    }
+    return 1;  // Return 1 (true) if all characters are valid
+}
+
 // Menerjemahkan kata dalam kode Morse ke huruf dan mencetaknya.
 void morseWordToChar(Node* root, char* morseWord) {
     morseToChar(root, morseWord);
@@ -414,16 +424,19 @@ void morseWordToChar(Node* root, char* morseWord) {
 
 // Menerjemahkan teks dalam kode Morse ke huruf dan mencetaknya.
 void morseTextToChar(Node* root, char* morseText) {
-    char* token = strtok(morseText, " ");
-    while (token != NULL) {
-        if (strcmp(token, "/") == 0) {
-            printf(" ");  // Tambahkan spasi untuk pemisah kata
-        } else {
-            morseWordToChar(root, token);
+    if (isValidMorseCode(morseText) == 1) {
+        char* token = strtok(morseText, " ");
+        while (token != NULL) {
+            if (strcmp(token, "/") == 0) {
+                printf(" ");  // Add a space for word separator
+            } else {
+                morseWordToChar(root, token);
+            }
+            token = strtok(NULL, " ");
         }
-        token = strtok(NULL, " ");
+    } else {
+        printf("Kesalahan: Input bukan sandi morse yang valid.\n");
     }
-    printf("\n");
 }
 
 // Menginisialisasi pohon Morse Code dengan memasukkan semua huruf, angka, dan simbol.
@@ -529,14 +542,14 @@ void readFile(Node* root) {
     getchar(); // Menunggu sampai pengguna menekan tombol enter
 }
 
-// Sound effect untuk setiap karakter Morse.
+//Fungsi untuk membuat suara code morse
 void playMorseSound(char morseChar) {
     if (morseChar == '.') {
-        Beep(800, 50); // Play a short beep for dot
-        Sleep(100); // Pause for dot duration
+        mciSendString("play dot.wav", NULL, 0, NULL); // Play a .wav file for dot
+        Sleep(60+60); // Pause for dot duration
     } else if (morseChar == '-') {
-        Beep(800, 150); // Play a long beep for dash
-        Sleep(200); // Pause for dash duration
+        mciSendString("play dash.wav", NULL, 0, NULL); // Play a .wav file for dot
+        Sleep(180+60); // Pause for dash duration
     }
 }
 
