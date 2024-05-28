@@ -587,12 +587,21 @@ void writeTextToFile() {
 void display_settings() {
     int settings_choice;
     do {
-        printf("                      +==============================+\n");
-        printf("                      ||        SETTINGS            ||\n");
-        printf("                      +==============================+\n");
+        printf("               +========================================+\n");
+        printf("               ||    _____      _   _   _              ||\n");
+        printf("               ||   / ____|    | | | | (_)             ||\n");
+        printf("               ||  | (___   ___| |_| |_ _ _ __   __ _  ||\n");
+        printf("               ||   \\___ \\ / _ \\ __| __| | '_ \\ / _` | ||\n");
+        printf("               ||   ____) |  __/ |_| |_| | | | | (_| | ||\n");
+        printf("               ||  |_____/ \\___|\\__|\\__|_|_| |_|\\__, | ||\n");
+        printf("               ||                                __/ | ||\n");
+        printf("               ||                               |___/  ||\n");
+        printf("               +========================================+\n");
         printf("\n");
-        printf("                      1. Sound Effects: %s\n", sound_effect_on ? "ON" : "OFF");
-        printf("                      2. Back\n");
+        printf("                    +==============================+\n");
+        printf("                    || 1. Sound Effects: %s       ||\n", sound_effect_on ? "\033[1;34mON\033[0m" : "\033[1;31mOFF\033[0m");
+        printf("                    || 2. Back                    ||\n");
+        printf("                    +==============================+");
         printf("\n");
         printf("Pilih opsi: ");
         scanf("%d", &settings_choice);
