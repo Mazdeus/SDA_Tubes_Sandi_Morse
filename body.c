@@ -80,68 +80,68 @@ void display_menu() {
                 {
                     int sub_choice;
                     do {
-                    printf("                         +========================+\n");
-                    printf("                         ||     1. Encode        ||\n");
-                    printf("                         ||     2. Decode        ||\n");
-                    printf("                         ||     3. Back          ||\n");
-                    printf("                         +========================+\n");
-                    printf("\n");
-                    printf("Pilih Menu Translator: ");
-                    scanf("%d", &sub_choice);
-                    getchar();  
+                        printf("                         +========================+\n");
+                        printf("                         ||     1. Encode        ||\n");
+                        printf("                         ||     2. Decode        ||\n");
+                        printf("                         ||     3. Back          ||\n");
+                        printf("                         +========================+\n");
+                        printf("\n");
+                        printf("Pilih Menu Translator: ");
+                        scanf("%d", &sub_choice);
+                        getchar();  
 
-                    switch(sub_choice) {
-                        case 1:
-                            {
-                            char text[50];
-                            printf("        +====================================================+\n");
-                            printf("        ||  _______                  _       _              ||\n");
-                            printf("        || |__   __|                | |     | |             ||\n");
-                            printf("        ||    | |_ __ __ _ _ __  ___| | __ _| |_ ___  _ __  ||\n");
-                            printf("        ||    | | '__/ _` | '_ \\/ __| |/ _` | __/ _ \\| '__| ||\n");
-                            printf("        ||    | | | | (_| | | | \\__ \\ | (_| | || (_) | |    ||\n");
-                            printf("        ||    |_|_|  \\__,_|_| |_|___/_|\\__,_|\\__\\___/|_|    ||\n");
-                            printf("        +====================================================+\n\n\n");
-                            printf("Masukkan teks: ");
-                            fgets(text, sizeof(text), stdin);
-                            // Remove newline character from input if present
-                            text[strcspn(text, "\n")] = 0;
-                            printf("Morse code: ");
-                            textToMorse(root, text);
-                            printf("\n");
-                            printf("Apakah Anda ingin menerjemahkan lagi? (1 untuk ya, 0 untuk tidak): ");
-                            scanf("%d", &sub_choice);
-                            getchar();  
-                            break;
-                            }
-                        case 2:
-                            {
-                            char morseText[100];
-                            printf("        +====================================================+\n");
-                            printf("        ||  _______                  _       _              ||\n");
-                            printf("        || |__   __|                | |     | |             ||\n");
-                            printf("        ||    | |_ __ __ _ _ __  ___| | __ _| |_ ___  _ __  ||\n");
-                            printf("        ||    | | '__/ _` | '_ \\/ __| |/ _` | __/ _ \\| '__| ||\n");
-                            printf("        ||    | | | | (_| | | | \\__ \\ | (_| | || (_) | |    ||\n");
-                            printf("        ||    |_|_|  \\__,_|_| |_|___/_|\\__,_|\\__\\___/|_|    ||\n");
-                            printf("        +====================================================+\n\n\n");
-                            printf("Masukkan sandi Morse: ");
-                            fgets(morseText, sizeof(morseText), stdin);
-                            printf("Hasil: ");
-                            morseTextToChar(root, morseText);
-                            printf("\n");
-                            printf("Apakah Anda ingin menerjemahkan lagi? (1 untuk ya, 0 untuk tidak): ");
-                            scanf("%d", &sub_choice);
-                            getchar();  
-                            break;
-                            }
-                        case 3:
-                            break;  // Back to the main menu
-                        default:
-                            printf("Opsi tidak valid. Silakan coba lagi.\n");
+                        switch(sub_choice) {
+                            case 1:
+                                {
+                                    char text[300];  // Meningkatkan ukuran buffer
+                                    printf("        +====================================================+\n");
+                                    printf("        ||  _______                  _       _              ||\n");
+                                    printf("        || |__   __|                | |     | |             ||\n");
+                                    printf("        ||    | |_ __ __ _ _ __  ___| | __ _| |_ ___  _ __  ||\n");
+                                    printf("        ||    | | '__/ _` | '_ \\/ __| |/ _` | __/ _ \\| '__| ||\n");
+                                    printf("        ||    | | | | (_| | | | \\__ \\ | (_| | || (_) | |    ||\n");
+                                    printf("        ||    |_|_|  \\__,_|_| |_|___/_|\\__,_|\\__\\___/|_|    ||\n");
+                                    printf("        +====================================================+\n\n\n");
+                                    printf("Masukkan teks: ");
+                                    fgets(text, sizeof(text), stdin);
+                                    // Remove newline character from input if present
+                                    text[strcspn(text, "\n")] = 0;
+                                    printf("Morse code: ");
+                                    textToMorse(root, text);
+                                    printf("\n");
+                                    printf("Apakah Anda ingin menerjemahkan lagi? (1 untuk ya, 0 untuk tidak): ");
+                                    scanf("%d", &sub_choice);
+                                    getchar();  
+                                    break;
+                                }
+                            case 2:
+                                {
+                                    char morseText[500];  // Meningkatkan ukuran buffer
+                                    printf("        +====================================================+\n");
+                                    printf("        ||  _______                  _       _              ||\n");
+                                    printf("        || |__   __|                | |     | |             ||\n");
+                                    printf("        ||    | |_ __ __ _ _ __  ___| | __ _| |_ ___  _ __  ||\n");
+                                    printf("        ||    | | '__/ _` | '_ \\/ __| |/ _` | __/ _ \\| '__| ||\n");
+                                    printf("        ||    | | | | (_| | | | \\__ \\ | (_| | || (_) | |    ||\n");
+                                    printf("        ||    |_|_|  \\__,_|_| |_|___/_|\\__,_|\\__\\___/|_|    ||\n");
+                                    printf("        +====================================================+\n\n\n");
+                                    printf("Masukkan sandi Morse: ");
+                                    fgets(morseText, sizeof(morseText), stdin);
+                                    printf("Hasil: ");
+                                    morseTextToChar(root, morseText);
+                                    printf("\n");
+                                    printf("Apakah Anda ingin menerjemahkan lagi? (1 untuk ya, 0 untuk tidak): ");
+                                    scanf("%d", &sub_choice);
+                                    getchar();  
+                                    break;
+                                }
+                            case 3:
+                                break;  // Back to the main menu
+                            default:
+                                printf("Opsi tidak valid. Silakan coba lagi.\n");
                         }
-                    
-                    } while (sub_choice == 1);
+
+                    } while (sub_choice != 3);
                 }
                 break;
             case 3:
@@ -372,23 +372,24 @@ void charToMorse(Node* root, char letter, char* path, int pathLen, int* found) {
     charToMorse(root->right, letter, path, pathLen + 1, found);
 }
 
-// Menerjemahkan teks ke kode Morse dan mencetaknya.
 void textToMorse(Node* root, char* text) {
     char path[100];
     for (int i = 0; text[i] != '\0'; i++) {
         if (text[i] == ' ') {
-            printf("/ ");  // Modifikasi untuk mencetak "/" sebagai pengganti spasi
-            continue;
+            printf("/ ");
+        } else {
+            int found = 0;
+            charToMorse(root, toupper(text[i]), path, 0, &found);
+            if (!found) {
+                printf("(Maaf karakter ini belum tersedia) ");
+            }
         }
-        int found = 0;
-        charToMorse(root, toupper(text[i]), path, 0, &found);
-        if (!found) {
-            printf("(Maaf karakter ini belum tersedia) ");
-        }
-        Sleep(400); // Pause between characters
+        // Berikan jeda antara huruf
+        Sleep(400); 
     }
     printf("\n");
 }
+
 
 // Menerjemahkan kode Morse ke huruf dan mencetaknya.
 void morseToChar(Node* root, char* morse) {
