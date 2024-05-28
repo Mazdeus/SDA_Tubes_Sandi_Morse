@@ -4,6 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdbool.h>
 
 typedef struct node {
     char letter;
@@ -48,5 +49,7 @@ void readFile(Node* root);
 void playMorseSound(char morseChar);
 
 void writeTextToFile();
+
+void display_settings();
 
 #endif

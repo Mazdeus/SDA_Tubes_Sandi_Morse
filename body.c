@@ -1,4 +1,6 @@
 #include "header.h"
+// Variabel global untuk mengontrol efek suara
+bool sound_effect_on = true;
 
 //Menampilkan tampilan utama
 void display_cover(){
@@ -46,6 +48,7 @@ void display_menu() {
         printf("                         ||     2. Translator    ||\n");
         printf("                         ||     3. File          ||\n");
         printf("                         ||     4. Info          ||\n");
+        printf("                         ||     5. Setting       ||\n");
         printf("                         ||     5. Exit          ||\n");
         printf("                         +========================+\n");
         printf("\n");
@@ -204,6 +207,9 @@ void display_menu() {
                 display_info();
                 break;
             case 5:
+                display_settings();
+                break;
+            case 6:
                 printf("        +========================================================+\n");
                 printf("        ||   _______ _                 _     __     __          ||\n");
                 printf("        ||  |__   __| |               | |    \\ \\   / /          ||\n");
@@ -571,4 +577,32 @@ void writeTextToFile() {
     fclose(file); // Menutup file
 
     printf("Teks berhasil ditulis ke dalam file 'output.txt'.\n");
+}
+
+// Fungsi menu settings
+void display_settings() {
+    int settings_choice;
+    do {
+        printf("                      +==============================+\n");
+        printf("                      ||        SETTINGS            ||\n");
+        printf("                      +==============================+\n");
+        printf("\n");
+        printf("                      1. Sound Effects: %s\n", sound_effect_on ? "ON" : "OFF");
+        printf("                      2. Back\n");
+        printf("\n");
+        printf("Pilih opsi: ");
+        scanf("%d", &settings_choice);
+        getchar();
+
+        switch(settings_choice) {
+            case 1:
+                sound_effect_on = !sound_effect_on;  // Toggle sound effect
+                break;
+            case 2:
+                break;  // Back to the main menu
+            default:
+                printf("Opsi tidak valid. Silakan coba lagi.\n");
+        }
+
+    } while (settings_choice != 2);
 }
