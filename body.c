@@ -550,6 +550,10 @@ void readFile(Node* root) {
 
 //Fungsi untuk membuat suara code morse
 void playMorseSound(char morseChar) {
+    if (!sound_effect_on) {
+        return;  
+    }
+
     if (morseChar == '.') {
         mciSendString("play dot.wav", NULL, 0, NULL); // Play a .wav file for dot
         Sleep(60+60); // Pause for dot duration
