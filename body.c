@@ -390,7 +390,7 @@ void textToMorse(Node* root, char* text) {
             }
         }
         // Berikan jeda antara huruf
-        Sleep(400); 
+        Sleep(240-60); 
     }
     printf("\n");
 }
