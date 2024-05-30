@@ -4,11 +4,12 @@
 #include <stdlib.h>
 #include <string.h>
 #include <ctype.h>
+#include <stdbool.h>
 
 typedef struct node {
     char letter;
-    struct node* left;
-    struct node* right;
+    struct node* dot;
+    struct node* dash;
 } Node;
 
 int main();
@@ -43,10 +44,14 @@ void morseTextToChar(Node* root, char* morseText);
 
 void initializeMorseTree(Node** root);
 
-void readFile(Node* root);
+void readFileEncode(Node* root);
+
+void readFileDecode(Node* root);
 
 void playMorseSound(char morseChar);
 
 void writeTextToFile();
+
+void display_settings();
 
 #endif
