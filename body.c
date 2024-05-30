@@ -301,8 +301,8 @@ void display_info() {
 Node* createNode(char letter) {
     Node* newNode = (Node*) malloc(sizeof(Node));
     newNode->letter = letter;
-    newNode->left = NULL;
-    newNode->right = NULL;
+    newNode->dot = NULL;
+    newNode->dash = NULL;
     return newNode;
 }
 
@@ -314,15 +314,15 @@ void insert(Node** root, char* code, char letter) {
     Node* temp = *root;
     while (*code) {
         if (*code == '.') {
-            if (temp->left == NULL) {
-                temp->left = createNode(0);
+            if (temp->dot == NULL) {
+                temp->dot = createNode(0);
             }
-            temp = temp->left;
+            temp = temp->dot;
         } else if (*code == '-') {
-            if (temp->right == NULL) {
-                temp->right = createNode(0);
+            if (temp->dash == NULL) {
+                temp->dash = createNode(0);
             }
-            temp = temp->right;
+            temp = temp->dash;
         }
         code++;
     }
@@ -332,9 +332,9 @@ void insert(Node** root, char* code, char letter) {
 // Melakukan traversal in-order pada pohon Morse Code dan mencetak huruf-hurufnya.
 void inOrderTraversal(Node* root) {
     if (root != NULL) {
-        inOrderTraversal(root->left);
+        inOrderTraversal(root->dot);
         printf(" '%c' ", root->letter); // Tidak perlu spasi di sini
-        inOrderTraversal(root->right);
+        inOrderTraversal(root->dash);
     }
 }
 
@@ -342,15 +342,15 @@ void inOrderTraversal(Node* root) {
 void preOrderTraversal(Node* root) {
     if (root != NULL) {
         printf(" '%c' ", root->letter);
-        preOrderTraversal(root->left);
-        preOrderTraversal(root->right);
+        preOrderTraversal(root->dot);
+        preOrderTraversal(root->dash);
     }
 }
 
 void postOrderTraversal(Node* root) {
     if (root != NULL) {
-    postOrderTraversal(root->left);
-    postOrderTraversal(root->right);
+    postOrderTraversal(root->dot);
+    postOrderTraversal(root->dash);
     printf(" '%c' ", root->letter);
     }
 }
@@ -371,10 +371,10 @@ void charToMorse(Node* root, char letter, char* path, int pathLen, int* found) {
     }
 
     path[pathLen] = '.';
-    charToMorse(root->left, letter, path, pathLen + 1, found);
+    charToMorse(root->dot, letter, path, pathLen + 1, found);
 
     path[pathLen] = '-';
-    charToMorse(root->right, letter, path, pathLen + 1, found);
+    charToMorse(root->dash, letter, path, pathLen + 1, found);
 }
 
 void textToMorse(Node* root, char* text) {
@@ -401,9 +401,9 @@ void morseToChar(Node* root, char* morse) {
     Node* temp = root;
     for (int i = 0; morse[i] != '\0'; i++) {
         if (morse[i] == '.') {
-            temp = temp->left;
+            temp = temp->dot;
         } else if (morse[i] == '-') {
-            temp = temp->right;
+            temp = temp->dash;
         } else if (morse[i] == ' ') {
             printf("%c", temp->letter);
             temp = root;

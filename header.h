@@ -8,8 +8,8 @@
 
 typedef struct node {
     char letter;
-    struct node* left;
-    struct node* right;
+    struct node* dot;
+    struct node* dash;
 } Node;
 
 int main();
