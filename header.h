@@ -44,7 +44,9 @@ void morseTextToChar(Node* root, char* morseText);
 
 void initializeMorseTree(Node** root);
 
-void readFile(Node* root);
+void readFileEncode(Node* root);
+
+void readFileDecode(Node* root);
 
 void playMorseSound(char morseChar);
 

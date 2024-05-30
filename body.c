@@ -49,7 +49,7 @@ void display_menu() {
         printf("                         ||     3. File          ||\n");
         printf("                         ||     4. Info          ||\n");
         printf("                         ||     5. Setting       ||\n");
-        printf("                         ||     5. Exit          ||\n");
+        printf("                         ||     6. Exit          ||\n");
         printf("                         +========================+\n");
         printf("\n");
         printf("Pilih Menu : ");
@@ -111,8 +111,7 @@ void display_menu() {
                                     printf("Morse code: ");
                                     textToMorse(root, text);
                                     printf("\n");
-                                    printf("Apakah Anda ingin menerjemahkan lagi? (1 untuk ya, 0 untuk tidak): ");
-                                    scanf("%d", &sub_choice);
+                                    printf("Tekan enter untuk lanjut!");
                                     getchar();  
                                     break;
                                 }
@@ -132,8 +131,7 @@ void display_menu() {
                                     printf("Hasil: ");
                                     morseTextToChar(root, morseText);
                                     printf("\n");
-                                    printf("Apakah Anda ingin menerjemahkan lagi? (1 untuk ya, 0 untuk tidak): ");
-                                    scanf("%d", &sub_choice);
+                                    printf("Tekan enter untuk lanjut!");
                                     getchar();  
                                     break;
                                 }
@@ -184,15 +182,45 @@ void display_menu() {
                             }
                         case 2:
                             {
-                            printf("          +===============================================+\n");
-                            printf("          ||   _____                _   ______ _ _       ||\n");
-                            printf("          ||  |  __ \\              | | |  ____(_) |      ||\n");
-                            printf("          ||  | |__) |___  __ _  __| | | |__   _| | ___  ||\n");
-                            printf("          ||  |  _  // _ \\/ _` |/ _` | |  __| | | |/ _ \\ ||\n");
-                            printf("          ||  | | \\ \\  __/ (_| | (_| | | |    | | |  __/ ||\n");
-                            printf("          ||  |_|  \\_\\___|\\__,_|\\__,_| |_|    |_|_|\\___| ||\n");
-                            printf("          +===============================================+\n\n");
-                            readFile(root);
+                                int sub_choice;
+                                do {
+                                    printf("          +===============================================+\n");
+                                    printf("          ||   _____                _   ______ _ _       ||\n");
+                                    printf("          ||  |  __ \\              | | |  ____(_) |      ||\n");
+                                    printf("          ||  | |__) |___  __ _  __| | | |__   _| | ___  ||\n");
+                                    printf("          ||  |  _  // _ \\/ _` |/ _` | |  __| | | |/ _ \\ ||\n");
+                                    printf("          ||  | | \\ \\  __/ (_| | (_| | | |    | | |  __/ ||\n");
+                                    printf("          ||  |_|  \\_\\___|\\__,_|\\__,_| |_|    |_|_|\\___| ||\n");
+                                    printf("          +===============================================+\n\n");
+                                    printf("\n");
+                                    printf("                         +========================+\n");
+                                    printf("                         ||     1. Encode        ||\n");
+                                    printf("                         ||     2. Decode        ||\n");
+                                    printf("                         ||     3. Back          ||\n");
+                                    printf("                         +========================+\n");
+                                    printf("\n");
+                                    printf("Pilih Menu File: ");
+                                    scanf("%d", &sub_choice);
+                                    getchar();  
+
+                                    switch (sub_choice) {
+                                        case 1:
+                                            readFileEncode(root);
+                                            printf("Tekan enter untuk lanjut!");
+                                            getchar(); 
+                                            break;
+                                        case 2:
+                                            readFileDecode(root);
+                                            printf("Tekan enter untuk lanjut!");
+                                            getchar(); 
+                                            break;
+                                        case 3:
+                                            break;  // Back to the main menu
+                                        default:
+                                            printf("Opsi tidak valid. Silakan coba lagi.\n");
+                                    }
+
+                                } while (sub_choice != 3);
                             break;
                             }
                         case 3:
@@ -504,48 +532,58 @@ void initializeMorseTree(Node** root) {
 }
 
 
-// Fungsi untuk membaca isi file
-void readFile(Node* root) {
+// Membaca file dan mengkodekan isinya ke sandi Morse
+void readFileEncode(Node* root) {
+    FILE* file;
     char filename[100];
-    printf("Masukkan nama file: ");
-    fgets(filename, sizeof(filename), stdin);
-    // Menghapus newline character yang tersisa
-    filename[strcspn(filename, "\n")] = 0;
+    char line[256];
 
-    // Debug: Print nama file yang dimasukkan
-    printf("Membuka file: %s\n", filename);
+    printf("Masukkan nama file yang akan dibaca: ");
+    scanf("%s", filename);
+    getchar(); 
 
-    FILE* file = fopen(filename, "r");
+    file = fopen(filename, "r");
     if (file == NULL) {
-        printf("Tidak bisa membuka file %s\n", filename);
+        printf("Tidak dapat membuka file %s\n", filename);
         return;
     }
 
-    char line[256];
     while (fgets(line, sizeof(line), file)) {
-        // Menghapus newline character yang tersisa
         line[strcspn(line, "\n")] = 0;
-
-        // Debug: Print setiap baris yang dibaca
-        printf("Membaca baris: %s\n", line);
-
-        // Cek apakah ini teks biasa atau sandi Morse
-        if (strchr(line, '.') != NULL || strchr(line, '-') != NULL) {
-            // Ini adalah sandi Morse
-            printf("Teks asli dari sandi Morse: ");
-            morseTextToChar(root, line);
-        } else {
-            // Ini adalah teks biasa
-            printf("Sandi Morse dari teks: ");
-            textToMorse(root, line);
-        }
+        printf("Teks: %s\n", line);
+        printf("Morse: ");
+        textToMorse(root, line);
         printf("\n");
     }
 
     fclose(file);
+}
 
-    printf("Tekan enter untuk kembali ke menu utama...");
-    getchar(); // Menunggu sampai pengguna menekan tombol enter
+// Membaca file dan mendekodekan isinya dari sandi Morse ke teks
+void readFileDecode(Node* root) {
+    FILE* file;
+    char filename[100];
+    char line[256];
+
+    printf("Masukkan nama file yang akan dibaca: ");
+    scanf("%s", filename);
+    getchar();  
+
+    file = fopen(filename, "r");
+    if (file == NULL) {
+        printf("Tidak dapat membuka file %s\n", filename);
+        return;
+    }
+
+    while (fgets(line, sizeof(line), file)) {
+        line[strcspn(line, "\n")] = 0;
+        printf("Sandi Morse: %s\n", line);
+        printf("Teks: ");
+        morseTextToChar(root, line);
+        printf("\n");
+    }
+
+    fclose(file);
 }
 
 //Fungsi untuk membuat suara code morse
