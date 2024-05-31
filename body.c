@@ -418,7 +418,9 @@ void textToMorse(Node* root, char* text) {
             }
         }
         // Berikan jeda antara huruf
-        Sleep(240-60); 
+        if(sound_effect_on){
+            Sleep(240-60); 
+        }
     }
     printf("\n");
 }
