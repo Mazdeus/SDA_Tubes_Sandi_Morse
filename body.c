@@ -104,14 +104,14 @@ void display_menu() {
                                     printf("        ||    | | | | (_| | | | \\__ \\ | (_| | || (_) | |    ||\n");
                                     printf("        ||    |_|_|  \\__,_|_| |_|___/_|\\__,_|\\__\\___/|_|    ||\n");
                                     printf("        +====================================================+\n\n\n");
-                                    printf("Masukkan teks: ");
+                                    printf("Masukkan teks: \033[1;36m");
                                     fgets(text, sizeof(text), stdin);
                                     // Remove newline character from input if present
                                     text[strcspn(text, "\n")] = 0;
-                                    printf("Morse code: ");
+                                    printf("\033[0mMorse code: \033[1;35m");
                                     textToMorse(root, text);
                                     printf("\n");
-                                    printf("Tekan enter untuk lanjut!");
+                                    printf("\033[0mTekan enter untuk lanjut!");
                                     getchar();  
                                     break;
                                 }
@@ -126,12 +126,12 @@ void display_menu() {
                                     printf("        ||    | | | | (_| | | | \\__ \\ | (_| | || (_) | |    ||\n");
                                     printf("        ||    |_|_|  \\__,_|_| |_|___/_|\\__,_|\\__\\___/|_|    ||\n");
                                     printf("        +====================================================+\n\n\n");
-                                    printf("Masukkan sandi Morse: ");
+                                    printf("Masukkan sandi Morse: \033[1;35m");
                                     fgets(morseText, sizeof(morseText), stdin);
-                                    printf("Hasil: ");
+                                    printf("\033[0mHasil: \033[1;36m");
                                     morseTextToChar(root, morseText);
                                     printf("\n");
-                                    printf("Tekan enter untuk lanjut!");
+                                    printf("\033[0mTekan enter untuk lanjut!");
                                     getchar();  
                                     break;
                                 }
@@ -337,7 +337,7 @@ Node* createNode(char letter) {
 // Memasukkan huruf ke dalam pohon Morse Code berdasarkan kode Morse yang diberikan.
 void insert(Node** root, char* code, char letter) {
     if (*root == NULL) {
-        *root = createNode(letter);
+        *root = createNode(0);
     }
     Node* temp = *root;
     while (*code) {
@@ -418,7 +418,9 @@ void textToMorse(Node* root, char* text) {
             }
         }
         // Berikan jeda antara huruf
-        Sleep(240-60); 
+        if(sound_effect_on){
+            Sleep(240-60); 
+        }
     }
     printf("\n");
 }
